@@ -16,12 +16,17 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
     line-height: 1.6;
-    overflow-x: hidden;
     position: relative;
 }
 
@@ -30,38 +35,34 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
     pointer-events: none;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header */
 header {
     background-color: var(--primary-color);
-    padding: 15px 20px;
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 10;
+    width: 100%;
 }
 
 .logo img {
     height: 50px;
     border-radius: 50%;
-}
-
-@media (max-width: 576px) {
-    .logo img {
-        height: 40px;
-    }
 }
 
 .header-right {
@@ -96,10 +97,13 @@ header {
 
 /* Hero Section */
 .hero {
-    background-image: url('https://www.toursbylocals.com/images/homepage/homepage-hero.webp');
+    background-image: url('https://www.toursbylocals.com/images/homepage/homepage-hero.webp') ;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 100vh;
+    min-height: 500px;
+    max-height: 800px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,19 +125,22 @@ header {
 .hero-content {
     position: relative;
     z-index: 1;
+    width: 90%;
     max-width: 800px;
     padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
+    font-size: 4rem;
+    margin-bottom: 20px;
     font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Search Container */
@@ -142,15 +149,19 @@ header {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .tabs {
     display: flex;
     background-color: #f5f5f5;
+    width: 100%;
 }
 
 .tab {
-    padding: 12px 20px;
+    padding: 15px 20px;
     background: none;
     border: none;
     cursor: pointer;
@@ -166,7 +177,8 @@ header {
 
 .search-box {
     display: flex;
-    padding: 15px;
+    padding: 20px;
+    width: 100%;
 }
 
 .search-input {
@@ -176,7 +188,7 @@ header {
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
     padding: 0 15px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .search-input svg {
@@ -187,9 +199,10 @@ header {
 .search-input input {
     flex: 1;
     border: none;
-    padding: 12px 0;
-    font-size: 1rem;
+    padding: 15px 0;
+    font-size: 1.1rem;
     outline: none;
+    width: 100%;
 }
 
 .search-btn {
@@ -197,14 +210,16 @@ header {
     color: var(--light-text);
     border: none;
     border-radius: var(--border-radius);
-    padding: 0 25px;
+    padding: 0 30px;
     font-weight: 500;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .search-btn:hover {
     background-color: #008c44;
+    transform: translateY(-2px);
 }
 
 /* Features Section */
@@ -212,45 +227,56 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    padding: 50px 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    margin-top: -50px;
+    padding: 60px 5%;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin-top: -70px;
     position: relative;
     z-index: 2;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    width: 100%;
 }
 
 .feature {
     text-align: center;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.feature:hover {
+    transform: translateY(-5px);
 }
 
 .feature-icon {
     background-color: var(--primary-color);
     color: var(--light-text);
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 15px;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px rgba(0, 70, 180, 0.2);
 }
 
 .feature h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
+    margin-bottom: 10px;
 }
 
 /* Tour Guides Section */
 .tour-guides {
-    padding: 80px 20px;
+    padding: 100px 5%;
     text-align: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .tour-guides h2 {
-    font-size: 2.2rem;
-    margin-bottom: 50px;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
     position: relative;
     display: inline-block;
 }
@@ -258,37 +284,44 @@ header {
 .tour-guides h2::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
+    width: 100px;
+    height: 4px;
     background-color: var(--primary-color);
 }
 
 .guides-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 30px;
+    gap: 40px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .guide {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .guide:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .guide img {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
     display: block;
     margin: 0 auto;
@@ -308,53 +341,77 @@ header {
 }
 
 .guide h3 {
-    margin: 20px 0 10px;
+    margin: 25px 0 15px;
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .guide p {
-    padding: 0 20px 20px;
-    color: #666;
+    padding: 0 25px 25px;
+    color: #555;
+    font-size: 1rem;
+    flex-grow: 1;
 }
 
 /* Chatbot Embed Styling */
 #deployment-78a6673c-e2a1-49bc-b305-b19130de0585 {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     z-index: 1000;
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .guides-container {
+        gap: 30px;
+    }
+    
+    .guide img {
+        height: 280px;
+    }
+}
+
 @media (max-width: 992px) {
     .features {
         grid-template-columns: repeat(2, 1fr);
+        padding: 50px 5%;
     }
     
     .guides-container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
     
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
     
     .hero {
-        height: 450px;
+        height: 80vh;
+        min-height: 450px;
+    }
+    
+    .guide img {
+        height: 260px;
     }
 }
 
 @media (max-width: 768px) {
     header {
-        padding: 10px 15px;
+        padding: 12px 5%;
     }
     
     .header-right {
-        gap: 10px;
+        gap: 15px;
     }
     
     .wishlist-btn {
-        padding: 6px 10px;
+        padding: 7px 12px;
         font-size: 0.9rem;
     }
     
@@ -364,92 +421,155 @@ header {
     
     .tab {
         flex-basis: 33.33%;
-        padding: 10px;
+        padding: 12px 10px;
         font-size: 0.9rem;
     }
     
     .search-box {
         flex-direction: column;
+        padding: 15px;
     }
     
     .search-input {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    .search-btn {
+        width: 100%;
+        padding: 12px 0;
     }
     
     .guides-container {
         grid-template-columns: 1fr;
-        gap: 20px;
+        max-width: 500px;
     }
     
     .hero {
-        height: 400px;
+        height: 70vh;
+        min-height: 400px;
     }
     
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     
     .hero p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     
     .tour-guides {
-        padding: 50px 15px;
+        padding: 60px 5%;
     }
     
     .tour-guides h2 {
-        font-size: 1.8rem;
-        margin-bottom: 40px;
+        font-size: 2rem;
+        margin-bottom: 50px;
     }
     
     .feature-icon {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .guide img {
+        height: 300px;
     }
 }
 
 @media (max-width: 576px) {
-    .container {
-        padding: 0 15px;
+    .logo img {
+        height: 40px;
+    }
+    
+    header {
+        padding: 10px 4%;
+    }
+    
+    .header-right {
+        gap: 10px;
     }
     
     .features {
         grid-template-columns: 1fr;
-        padding: 30px 15px;
-        margin-top: -30px;
-        gap: 20px;
+        padding: 40px 4%;
+        margin-top: -50px;
+        gap: 25px;
     }
     
     .tab {
         flex-basis: 50%;
         font-size: 0.8rem;
-        padding: 8px 5px;
+        padding: 10px 5px;
     }
     
     .hero {
-        height: 350px;
+        height: 60vh;
+        min-height: 350px;
     }
     
+    .hero-content {
+        width: 95%;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .guide {
+        margin-bottom: 20px;
+    }
+    
+    .guide img {
+        height: 250px;
+    }
+    
+    .guide h3 {
+        font-size: 1.2rem;
+        margin: 20px 0 10px;
+    }
+    
+    .guide p {
+        font-size: 0.9rem;
+        padding: 0 20px 20px;
+    }
+    
+    .tour-guides {
+        padding: 50px 4%;
+    }
+    
+    .tour-guides h2 {
+        font-size: 1.8rem;
+    }
+    
+    #deployment-78a6673c-e2a1-49bc-b305-b19130de0585 {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 400px) {
     .hero h1 {
         font-size: 1.8rem;
     }
     
     .hero p {
         font-size: 0.9rem;
-        margin-bottom: 20px;
+    }
+    
+    .tab {
+        padding: 8px 5px;
+        font-size: 0.75rem;
     }
     
     .guide img {
-        height: 200px;
-    }
-    
-    .guide h3 {
-        font-size: 1.1rem;
-    }
-    
-    .guide p {
-        font-size: 0.9rem;
-        padding: 0 15px 15px;
+        height: 220px;
     }
 }
